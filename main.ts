@@ -1,9 +1,11 @@
-radio.setGroup(22)
-basic.forever(function () {
-    let x = input.acceleration(Dimension.X); //vprav, vlevo
-    let y = input.acceleration(Dimension.Y); //dopředu, dozadu
-    radio.sendValue("x", x);
-    radio.sendValue("y", y);
-    basic.pause(50);
-})
+radio.setGroup(21)
 
+basic.forever(function () {
+    let x = input.acceleration(Dimension.X)
+    let y = input.acceleration(Dimension.Y)
+
+    // Odesíláme hodnoty jako jediný řetězec "x:y"
+    radio.sendString(x + ":" + y)
+
+    basic.pause(50)
+})
